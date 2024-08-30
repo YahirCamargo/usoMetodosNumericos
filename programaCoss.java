@@ -1,6 +1,8 @@
 
 package nose;
 
+import javax.swing.JOptionPane;
+
 
 public class programaCoss extends javax.swing.JFrame {
 private clasesita clas;
@@ -123,9 +125,17 @@ private clasesita clas;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        clas.setC(Double.parseDouble(coeficienteDeArrastre.getText()));
-        clas.setM(Double.parseDouble(masa.getText()));
-        jTable1.setModel(clas.calculoTabla());
+        if((Double.parseDouble(coeficienteDeArrastre.getText()))>0 && (Double.parseDouble(masa.getText()))>0){
+            clas.setC(Double.parseDouble(coeficienteDeArrastre.getText()));
+            clas.setM(Double.parseDouble(masa.getText()));
+            jTable1.setModel(clas.calculoTabla());
+        }else{
+            JOptionPane.showMessageDialog(null, "No ingrese valores negativos o cero");
+            coeficienteDeArrastre.setText("");
+            masa.setText("");
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
