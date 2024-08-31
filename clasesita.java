@@ -4,6 +4,7 @@
  */
 package nose;
 
+import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,24 +14,15 @@ import javax.swing.table.DefaultTableModel;
 public class clasesita {
     double velocidad=0.0;
     //esta primera variable sera para guardar la velocidad segun los segundos
-    double c;
-    //esta variable es para el coeficiente de arrastre
-    double m;
-    //esta varaible sera para la masa del objeto
-
-
-    public void setC(double c) {
-        this.c = c;
-    }
-
-    public void setM(double m) {
-        this.m = m;
-    }
+    
+    DecimalFormat df=new DecimalFormat("#.00");
+    //se usara esto para limitar los decimales a solo 2
+            
     
     //los anteriores set serviran para la clase donde se pone las tablas inicializarlas segun el usuario
     
     
-    public DefaultTableModel calculoTabla() {
+    public DefaultTableModel calculoTabla(double coeficienteArrastre, double masa) {
         DefaultTableModel dtm = new DefaultTableModel();
       
         dtm.addColumn("T");
@@ -43,10 +35,10 @@ public class clasesita {
         //lo anterior fue asi ya que la primer velocidad debe de ser cero
         
         for (double tiempo = 2.0; tiempo <=16.0; tiempo+=2.0) {
-            velocidad+=((9.81-((c/m)*velocidad))*2);
+            velocidad+=((9.81-((coeficienteArrastre/masa)*velocidad))*2);
             dtm.addRow(new Object[]{
                 tiempo,
-                velocidad
+                df.format(velocidad)
             });
         }
         //el cliclo for anterior es para ir guardando en la tabla cada velocidad cada 2 segundos

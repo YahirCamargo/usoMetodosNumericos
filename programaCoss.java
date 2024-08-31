@@ -126,9 +126,8 @@ private clasesita clas;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if((Double.parseDouble(coeficienteDeArrastre.getText()))>0 && (Double.parseDouble(masa.getText()))>0){
-            clas.setC(Double.parseDouble(coeficienteDeArrastre.getText()));
-            clas.setM(Double.parseDouble(masa.getText()));
-            jTable1.setModel(clas.calculoTabla());
+            jTable1.setModel(clas.calculoTabla(Double.parseDouble(coeficienteDeArrastre.getText()),
+                    Double.parseDouble(masa.getText())));
         }else{
             JOptionPane.showMessageDialog(null, "No ingrese valores negativos o cero");
             coeficienteDeArrastre.setText("");
