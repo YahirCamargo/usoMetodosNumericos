@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package nose;
 
 import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author yahir
- */
 public class clasesita {
     double velocidad=0.0;
     //esta primera variable sera para guardar la velocidad segun los segundos
@@ -18,8 +11,6 @@ public class clasesita {
     DecimalFormat df=new DecimalFormat("#.00");
     //se usara esto para limitar los decimales a solo 2
             
-    
-    //los anteriores set serviran para la clase donde se pone las tablas inicializarlas segun el usuario
     
     
     public DefaultTableModel calculoTabla(double coeficienteArrastre, double masa) {
